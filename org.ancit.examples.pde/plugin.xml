@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="detailsViewAction" name="DetailsView Action" schema="schema/detailsViewAction.exsd"/>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.ancit.examples.pde.perspectives.TrainingPerspective"
+            id="org.ancit.examples.pde.perspectives.TrainingPerspective"
+            name="Training Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.ancit.examples.pde.perspectives.TrainingPerspective">
+         <viewShortcut
+               id="org.eclipse.ui.views.ResourceNavigator">
+         </viewShortcut>
+         <perspectiveShortcut
+               id="org.eclipse.jdt.ui.JavaPerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <perspectiveShortcut
+               id="org.ancit.examples.pde.perspectives.TrainingPerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.ancit.examples.pde.views.TrainingNavigator"
+            id="org.ancit.examples.pde.views.TrainingNavigator"
+            name="Training Navigator"
+            restorable="true">
+      </view>
+      <view
+            class="org.ancit.examples.pde.views.LocationView"
+            id="org.ancit.examples.pde.views.LocationView"
+            name="Location View"
+            restorable="true">
+      </view>
+      <view
+            class="org.ancit.examples.pde.views.DetailsView"
+            id="org.ancit.examples.pde.views.DetailsView"
+            name="Details View"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="org.ancit.examples.pde.viewContribution1"
+            targetID="org.eclipse.ui.navigator.ProjectExplorer">
+         <action
+               class="org.ancit.examples.pde.viewActions.TrainingViewAction"
+               id="org.ancit.examples.pde.viewActions.TrainingViewAction"
+               label="Click ME"
+               menubarPath="org.ancit.examples.pde.menu1/additions"
+               style="push"
+               toolbarPath="additions"
+               tooltip="This is a ViewAction from plugin.xml">
+         </action>
+         <menu
+               id="org.ancit.examples.pde.menu1"
+               label="Sub Menu"
+               path="additions">
+         </menu>
+      </viewContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.ancit.examples.pde.actionSet1"
+            label="TrainingActionSet"
+            visible="true">
+         <menu
+               id="org.ancit.examples.pde.menu1"
+               label="Training"
+               path="file/close.ext">
+         </menu>
+         <action
+               class="org.ancit.examples.pde.actionSets.OpenPerspectiveAction"
+               id="org.ancit.examples.pde.actionSets.OpenPerspectiveAction"
+               label="Click ME"
+               menubarPath="file/org.ancit.examples.pde.menu1/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.ancit.examples.pde.handlers.TrainingHandler"
+            id="org.ancit.examples.pde.command1"
+            name="Training Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.ancit..examples.pde.views.TrainingNavigator">
+         <command
+               commandId="org.ancit..examples.pde.command1"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="org.ancit..examples.pde.toolbar1"
+               label="Sample Toolbar">
+            <command
+                  commandId="org.ancit..examples.pde.command1"
+                  icon="icons/tag-macro.gif"
+                  label="Open Training Perspective"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.ancit..examples.pde.command1"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+SHIFT+3">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="org.ancit.examples.pde.decorators.GroupLabelDecorator"
+            id="org.ancit..examples.pde.decorator1"
+            label="Training Decorator"
+            lightweight="true"
+            state="true">
+      </decorator>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="org.ancit.examples.pde.category1"
+            name="Training">
+      </category>
+      <wizard
+            category="org.ancit.examples.pde.category1"
+            class="org.ancit.examples.pde.wizards.AddressBookImportWizard"
+            icon="icons/tag-macro.gif"
+            id="org.ancit.examples.pde.wizards.AddressBookImportWizard"
+            name="AddressBook">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="org.ancit.examples.pde.properties.ContactPropertyPage"
+            icon="icons/attribute_obj.gif"
+            id="org.ancit.examples.pde.properties.ContactPropertyPage"
+            name="Contact Information"
+            objectClass="org.ancit.examples.model.Contact">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.ancit.examples.pde.preferences.AddressBookPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.ancit.examples.pde.preferences.AddressBookPreferencePage"
+            id="org.ancit.examples.pde.preferences.AddressBookPreferencePage"
+            name="AddressBook">
+      </page>
+   </extension>
+
+</plugin>

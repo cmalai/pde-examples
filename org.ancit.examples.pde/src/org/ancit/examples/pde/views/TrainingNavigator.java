@@ -55,16 +55,6 @@ public class TrainingNavigator extends ViewPart {
 		tViewer.setLabelProvider(dlp);
 		//Step 4. Set Input
 		AddressBook addressBook = ModelManager.getInstance().getAddressBook();
-		//Create Group
-		Group group = new Group();
-		group.setName("Official");
-		addressBook.getGroups().add(group);
-		//Create Contact
-		Contact contact = new Contact();
-		contact.setName("ABC Sharma");
-		contact.setAddress("MG Road, Bangalore");
-		group.getContacts().add(contact);
-		
 		tViewer.setInput(addressBook);
 		
 		tViewer.addSelectionChangedListener(new ISelectionChangedListener() {

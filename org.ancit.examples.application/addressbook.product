@@ -32,18 +32,18 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
 
    <plugins>
-      <plugin id="org.ancit.examples.application"/>
-      <plugin id="org.ancit.examples.model"/>
-      <plugin id="org.ancit.examples.pde"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.xml"/>
+      <plugin id="org.ancit.examples.application"/>
+      <plugin id="org.ancit.examples.cnf"/>
+      <plugin id="org.ancit.examples.model"/>
+      <plugin id="org.ancit.examples.pde"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
@@ -94,6 +94,7 @@
       <plugin id="org.eclipse.swt"/>
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.navigator"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>

@@ -26,6 +26,15 @@ public class ModelManager {
 	public AddressBook getAddressBook() {
 		if(addressBook == null) {
 			addressBook = new AddressBook();
+			//Create Group
+			Group group = new Group();
+			group.setName("Official");
+			addressBook.getGroups().add(group);
+			//Create Contact
+			Contact contact = new Contact();
+			contact.setName("ABC Sharma");
+			contact.setAddress("MG Road, Bangalore");
+			group.getContacts().add(contact);
 		}
 		return addressBook;
 	}
